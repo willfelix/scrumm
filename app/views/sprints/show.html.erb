@@ -1,0 +1,59 @@
+<%- model_class = Sprint -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:date_begin) %>:</strong></dt>
+  <dd><%= @sprint.date_begin %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_final) %>:</strong></dt>
+  <dd><%= @sprint.date_final %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @sprint.name %></dd>
+</dl>
+
+<table class="table">
+	<tr>
+		<% @statuses.each do |status| %>
+			<th><%= status.title %></th>
+		<% end %>
+	</tr>
+
+	<% @statuses.each_with_index do |status, i| %>
+		<% @sprint.tasks.each do |task| %>
+		<tr>
+		  
+		  <% if task.status.title == Status.find(i+1).title %>
+		  
+		    <% @statuses.each_with_index do |cel, j| %>
+			  <% if j < i %>
+			    <td></td>
+			  <% end %>
+		    <% end %>
+			
+		    <% if task.unplanned == true %>
+		      <td style="background-color: #9400D3;">
+			<% else %>
+			  <td style="background-color: #FFA500;">
+			<% end %>
+				<%= link_to task.description, task_path(task) %>
+			  </td>
+			  
+		  <% end %>
+		  
+		</tr>
+		<% end %>
+	<% end %>
+</table>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              sprints_path, :class => 'btn btn-inverse'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_sprint_path(@sprint), :class => 'btn btn-inverse' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              sprint_path(@sprint),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

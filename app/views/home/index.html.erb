@@ -1,0 +1,45 @@
+<% date_modify = @smaller_sprint.date_begin.to_formatted_s(:db).split("-") %>
+<% date_modify[1] =  (date_modify[1].to_i - 1).to_s %>
+<% date_modify = date_modify.join(",") %>
+
+
+
+<script type="text/javascript" charset="utf-8">
+$(function(){
+	var date_begin = Date.UTC(<%= date_modify  %>);
+	var date_interval;
+	
+	new Highcharts.Chart({
+		chart: {
+			renderTo: "container"
+		},
+		title: {
+			text: "Scrumm"
+		},
+		xAxis: {
+			type: "datetime"
+		},
+		yAxis: {
+			title: {
+				text: "Scrumm Ammount"
+			}
+		},
+		series: [{
+			name: "Scrums",
+			color: "#FF0000",
+			pointInterval: <%= 1.week * 1000 %>,
+			pointStart: date_begin,
+			data: <%= @ammount %>
+		}]
+	});
+	
+});
+</script>
+
+<div id="center">
+Ammount - <%= @ammount %>
+AmmountSize - <%= @ammount_size %>
+	<h1>Graphic</h1>
+	<div id="container" style="margin-left: 2%; width:96%; height:400px;"></div>
+	<hr>
+</div>

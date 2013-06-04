@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scrum</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  
+  <script type="text/javascript" src="http://static.tumblr.com/3ikgvxs/0TGl4zgpu/jquery.min.js"></script>
+  <script type="text/javascript" src="http://blogonthenet.xpg.com.br/ttricks/menuslide.js"></script>
+
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body style="background-color: #C1CDCD">
+	
+<div class="container-narrow">
+
+	<% if user_signed_in? %>
+		<div class="navbar navbar-inverse">
+		
+			<div class="navbar-inner">
+				<div id="menu" style="float:left;">
+					<h3 class="nome_menu" style="color: white;text-shadow: 5px 5px 5px black;">SCRUM</h3>
+					<div class="itens_menu">
+						<p><%= link_to current_user.name, root_path, :class => 'btn btn-inverse' %></p>
+						<p><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class=> 'btn btn-inverse' %></p>
+					</div>
+				</div>
+					
+				<div style="float:right; padding-top:10px;">
+					
+					<%= link_to 'Sprints', sprints_path, :class => 'btn btn-primary' %>
+					<%= link_to 'Projects', projects_path, :class => 'btn btn-primary' %>
+					<%= link_to 'Tasks', tasks_path, :class => 'btn btn-primary' %>
+					<%= link_to 'Status', statuses_path, :class => 'btn btn-primary' %>
+					<%= link_to 'Responsibles', responsibles_path, :class => 'btn btn-primary' %>
+					<%= link_to 'Points', points_path, :class => 'btn btn-primary' %>
+					
+				</div>
+			</div>
+			
+		</div>
+		<hr>
+	<% end %>
+	
+  <%= yield %>
+
+</div>
+
+</body>
+</html>
