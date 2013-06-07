@@ -2,15 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'sqlite3'
 gem 'devise'
 gem 'kaminari'
 gem 'show_for'
 gem 'simple_form'
 gem "twitter-bootstrap-rails"
+gem "lazy_high_charts", "~> 1.4.2"
 gem "highcharts-rails", "~> 3.0.0"
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
 
@@ -27,18 +25,3 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

@@ -23,7 +23,7 @@
 		<% @sprint.tasks.each do |task| %>
 		<tr>
 		  
-		  <% if task.status.title == Status.find(i+1).title %>
+		  <% if task.status.title == status.title %>
 		  
 		    <% @statuses.each_with_index do |cel, j| %>
 			  <% if j < i %>

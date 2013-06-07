@@ -3,7 +3,7 @@ class Sprint < ActiveRecord::Base
 
   attr_accessible :date_begin, :date_final, :name
   
-  validates :date_begin, :presence => true
+  validates :date_begin, :presence => true, :uniqueness => true
   validates :date_final, :presence => true
   validates :name, :presence => true
   

@@ -3,7 +3,6 @@ class SprintsController < ApplicationController
   # GET /sprints.json
   def index
     @sprints = Sprint.page params[:page]
-
   end
 
   # GET /sprints/1
@@ -38,14 +37,18 @@ class SprintsController < ApplicationController
   # POST /sprints.json
   def create
     @sprint = Sprint.new(params[:sprint])
-
+	
     respond_to do |format|
-      if @sprint.save
+      if @sprint.date_begin <= @sprint.date_final && @sprint.save
         format.html { redirect_to @sprint, notice: 'Sprint was successfully created.' }
         format.json { render json: @sprint, status: :created, location: @sprint }
       else
-        format.html { render action: "new" }
-        format.json { render json: @sprint.errors, status: :unprocessable_entity }
+		if @sprint.date_begin > @sprint.date_final
+			format.html { redirect_to new_sprint_path, notice: "  Field date_final can't be grower that date_begin." }
+		else
+			format.html { redirect_to new_sprint_path, notice: "  Name Required." }
+		end
+		format.json { render json: @sprint.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -75,6 +78,14 @@ class SprintsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to sprints_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def destroy_all
+    Sprint.destroy_all
+	
+	respond_to do |format|
+      format.html { redirect_to root_path }
     end
   end
 end

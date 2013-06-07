@@ -1,17 +1,24 @@
 Scrum::Application.routes.draw do
 
   devise_for :users
-
+  
+  get "sprints/destroy_all"
+  get "projects/destroy_all"
+  get "tasks/destroy_all"
+  get "responsibles/destroy_all"
+  get "statuses/destroy_all"
+  get "points/destroy_all"
+  get "home/index"
+  
   resources :projects
-
-
   resources :points
   resources :tasks
   resources :responsibles
   resources :statuses
   resources :sprints
 
-	get "home/index"
+	
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

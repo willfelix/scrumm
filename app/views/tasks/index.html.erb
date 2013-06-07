@@ -9,10 +9,10 @@
       <th><%= model_class.human_attribute_name(:sprint) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= model_class.human_attribute_name(:responsible) %></th>
-      <th><%= model_class.human_attribute_name(:point_id) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:project) %></th>
+      <th><%= model_class.human_attribute_name(:point) %></th>
       <th><%= model_class.human_attribute_name(:unplanned) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -23,10 +23,10 @@
         <td><%= task.sprint.name %></td>
         <td><%= task.status.title %></td>
         <td><%= task.responsible.name %></td>
-        <td><%= task.point_id %></td>
+		<td><%= task.project.name %></td>
+        <td><%= task.point.name %></td>
+		<td><%= task.unplanned %></td>
         <td><%= task.description %></td>
-        <td><%= task.unplanned %></td>
-        <td><%=l task.created_at %></td>
         <td>
 		  <%= link_to t('.show', :default => t("helpers.links.show")),
                       task_path(task), :class => 'btn btn-inverse btn-mini' %>
@@ -46,3 +46,6 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_task_path,
             :class => 'btn btn-primary' %>
+<%= link_to 'Delete All', tasks_destroy_all_path,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger' %>

@@ -80,4 +80,12 @@ class PointsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def destroy_all
+    Point.destroy_all
+	
+	respond_to do |format|
+      format.html { redirect_to root_path }
+    end
+  end
 end

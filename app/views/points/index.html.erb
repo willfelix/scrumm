@@ -38,3 +38,6 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_point_path,
             :class => 'btn btn-primary' %>
+<%= link_to 'Delete All', points_destroy_all_path,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger' %>
