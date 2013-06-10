@@ -1,12 +1,21 @@
-<div id="containerS" style="margin-left: 2%; width:96%; height:400px;"></div>
+<div id="containerS" class="row" style="margin-left: 2%; height:400px;">
+	<div class="spam6">
+		<%= high_chart("containerS", @s) %>
+	</div>
+	<div class="spam6">
+		<p>PIIIOADSIOJERIJ</p>
+	</div>
+</div>
 <hr>
-<div id="containerT" style="margin-left: 2%; width:96%; height:400px;"></div>
+<div id="containerT" style="margin-left: 2%; width:96%; height:400px;">
+	<%= high_chart("containerT", @t) %>
+</div>
 <hr>
-<div id="containerR" style="margin-left: 2%; width:96%; height:400px;"></div>
+<div id="containerR" style="margin-left: 2%; width:96%; height:400px;">
+	<%= high_chart("containerR", @r) %>
+</div>
 <hr>
-<div id="containerP" style="margin-left: 2%; width:96%; height:400px;"></div>
+<div id="containerP" style="margin-left: 2%; width:96%; height:400px;">
+	<%= high_chart("containerP", @p) %>
+</div>
 <hr>
-<%= high_chart("containerS", @s) %>
-<%= high_chart("containerT", @t) %>
-<%= high_chart("containerR", @r) %>
-<%= high_chart("containerP", @p) %>
