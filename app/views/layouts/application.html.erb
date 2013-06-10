@@ -17,31 +17,40 @@
 <div class="container-narrow">
 
 	<% if user_signed_in? %>
-		<div class="navbar navbar-inverse">
-		
-			<div class="navbar-inner">
-				<div id="menu" style="float:left;">
-					<h3 class="nome_menu" style="color: white;text-shadow: 5px 5px 5px black;">SCRUM</h3>
-					<div class="itens_menu">
-						<p><%= link_to current_user.name, root_path, :class => 'btn btn-inverse' %></p>
-						<p><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class=> 'btn btn-inverse' %></p>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			  <div class="navbar-inner">
+				<div class="container-fluid">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					  
+					<%= link_to 'Scrumm', root_path, :class => "brand" %>
+					  
+					<div class="nav-collapse collapse">
+						<p class="navbar-text pull-right" >
+							Logged in as <%= link_to current_user.name, :class => "navbar-link" %> ||
+							<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+						</p>
+						  
+						
+						<ul class="nav">
+						  <li class="active"><%= link_to 'Home', root_path %></li>
+						  <li><%= link_to 'Sprints', sprints_path%></li>
+						  <li><%= link_to 'Projects', projects_path %></li>
+						  <li><%= link_to 'Tasks', tasks_path %></li>
+						  <li><%= link_to 'Status', statuses_path %></li>
+						  <li><%= link_to 'Responsibles', responsibles_path %></li>
+						  <li><%= link_to 'Points', points_path %></li>
+						</ul>
 					</div>
-				</div>
-					
-				<div style="float:right; padding-top:10px;">
-					<%= current_user.email %>
-					<%= link_to 'Sprints', sprints_path, :class => 'btn btn-primary' %>
-					<%= link_to 'Projects', projects_path, :class => 'btn btn-primary' %>
-					<%= link_to 'Tasks', tasks_path, :class => 'btn btn-primary' %>
-					<%= link_to 'Status', statuses_path, :class => 'btn btn-primary' %>
-					<%= link_to 'Responsibles', responsibles_path, :class => 'btn btn-primary' %>
-					<%= link_to 'Points', points_path, :class => 'btn btn-primary' %>
 					
 				</div>
-			</div>
-			
+			  </div>
 		</div>
-		<hr>
+	
+	<br><br><br>
 	<% end %>
 	
   <%= yield %>

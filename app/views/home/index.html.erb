@@ -1,21 +1,118 @@
-<div id="containerS" class="row" style="margin-left: 2%; height:400px;">
-	<div class="spam6">
+<div class="row-fluid">
+	<div id="containerS" class="span8" style="margin: 1%2%1%2%">
 		<%= high_chart("containerS", @s) %>
 	</div>
-	<div class="spam6">
-		<p>PIIIOADSIOJERIJ</p>
+	
+	<div class="span3" style="margin: 1%2%1%2%">
+	
+		<table class="table table-striped table-hover" style="background-color:white;">
+			<tr>
+				<th>Sprints</th>
+				<th>Tasks</th>
+				<th>Points</th>
+			</tr>
+			<% i = 0 %>
+			<% while i < @sprints_date.size %>
+				<tr>
+					<td><%= @sprints_date[i] %></td>
+					<td><%= @tasks_ammount[i] %></td>
+					<td><%= @points_ammount[i] %></td>
+				</tr>
+				<% i += 1 %>
+			<% end %>
+		</table>
+	
 	</div>
 </div>
+
 <hr>
-<div id="containerT" style="margin-left: 2%; width:96%; height:400px;">
-	<%= high_chart("containerT", @t) %>
+
+<div class="row-fluid">
+	<div id="containerT" class="span8" style="margin: 1%2%1%2%">
+		<%= high_chart("containerT", @t) %>
+	</div>
+	
+	<div class="span3" style="margin: 1%2%1%2%">
+	
+		<table class="table table-striped table-hover" style="background-color:white;">
+			<tr class="success">
+				<th>Sprints</th>
+				<th>Tasks Unplanned</th>
+				<th>Points</th>
+			</tr>
+			<% i = 0 %>
+			<% while i < @sprints_date.size %>
+				<tr>
+					<td><%= @sprints_date[i] %></td>
+					<td><%= @tasks_unplanned_ammount[i] %></td>
+					<td><%= @points_unplanned_ammount[i] %></td>
+				</tr>
+				<% i += 1 %>
+			<% end %>
+		</table>
+	
+	</div>
 </div>
+
 <hr>
-<div id="containerR" style="margin-left: 2%; width:96%; height:400px;">
-	<%= high_chart("containerR", @r) %>
+
+<div class="row-fluid">
+	<div id="containerR" class="span8" style="margin: 1%2%1%2%">
+		<%= high_chart("containerR", @r) %>
+	</div>
+	
+	<div class="span3" style="margin: 1%2%1%2%">
+	
+		<table class="table table-striped table-hover" style="background-color:white;">
+			<tr class="success">
+				<th>Responsibles</th>
+				<th>Points</th>
+			</tr>
+			<% i = 0 %>
+			<% while i < @developers.size %>
+				<tr>
+					<td><%= @developers[i] %></td>
+					<td><%= @points_for_people[i] %></td>
+				</tr>
+				<% i += 1 %>
+			<% end %>
+		</table>
+	
+	</div>
 </div>
+
 <hr>
-<div id="containerP" style="margin-left: 2%; width:96%; height:400px;">
+
+<div style="margin: 1%2%1%2%">
+	<table class="table table-striped table-hover" style="background-color:white;">
+		<tr>
+			<th>Projects</th>
+			<th>Responsibles</th>
+			<th>Points</th>
+		</tr>
+		
+		<% i = 0 %>
+		<% while i < @works.size %>
+		
+			<tr>
+				<th rowspan="<%= @developers.size + 1%>"><%= @works[i] %></th>
+				
+				<% j = 0 %>
+				<% while j < @developers.size %>
+				<tr>
+					<td><%= @developers[j] %></td>
+					<td><%= @points_for_project[j][i] %></td>
+					<% j += 1 %>
+				</tr>
+				<% end %>
+			</tr>
+
+			<% i += 1 %>
+		<% end %>
+		
+	</table>
+</div>
+
+<div id="containerP" style="margin: 1%2%1%2%">
 	<%= high_chart("containerP", @p) %>
 </div>
-<hr>
