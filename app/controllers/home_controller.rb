@@ -124,7 +124,6 @@ class HomeController < ApplicationController
 	@works = Array.new
 	points_aux = Array.new
 	index = 0
-	#@teste = Array.new
 	
 	projects.each_with_index do |proj, i|
 		@works << proj.name
@@ -137,7 +136,6 @@ class HomeController < ApplicationController
 				
 				if task.project.name == proj.name
 					if task.responsible.name == dev
-						#@teste << dev + " " + proj.name + " " + i.to_s
 						points_aux[index] += task.point.name
 					end
 				end
