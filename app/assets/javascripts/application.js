@@ -15,3 +15,16 @@
 //= require_tree .
 //= require highcharts
 //= require twitter/bootstrap
+
+
+$(document).ready(function() {
+	var names = ['home', 'sprints','projects', 'tasks', 'statuses','responsibles','points'];
+	var url = document.URL;
+	
+	for (var i = 0; i < names.length; i++){
+		var page = url.lastIndexOf(names[i]);
+		if (page != -1){
+			$("#" + names[i]).addClass("active");
+		}
+	}
+});

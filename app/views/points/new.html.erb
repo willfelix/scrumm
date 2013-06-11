@@ -1,7 +1,9 @@
 <div class="container-fluid">
 	<%- model_class = Point -%>
 	<div class="page-header">
-	  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+		<legend style="padding: 1%2%1%2%">
+			<%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %>
+		</legend>
 	</div>
 	<%= render :partial => 'form' %>
 </div>

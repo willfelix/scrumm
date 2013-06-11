@@ -12,7 +12,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body style="background-color: #C1CDCD">
+<body>
 	
 <div class="container-narrow">
 
@@ -35,13 +35,13 @@
 						</p>
 						
 						<ul class="nav">
-							<li class="active"><%= link_to 'Home', root_path %></li>
-							<li><%= link_to 'Sprints', sprints_path %></li>
-							<li><%= link_to 'Projects', projects_path %></li>
-							<li><%= link_to 'Tasks', tasks_path %></li>
-							<li><%= link_to 'Status', statuses_path %></li>
-							<li><%= link_to 'Responsibles', responsibles_path %></li>
-							<li><%= link_to 'Points', points_path %></li>
+							<li id="home"><%= link_to 'Home', root_path %></li>
+							<li id="sprints"><%= link_to 'Sprints', sprints_path %></li>
+							<li id="projects"><%= link_to 'Projects', projects_path %></li>
+							<li id="tasks"><%= link_to 'Tasks', tasks_path %></li>
+							<li id="statuses"><%= link_to 'Status', statuses_path %></li>
+							<li id="responsibles"><%= link_to 'Responsibles', responsibles_path %></li>
+							<li id="points"><%= link_to 'Points', points_path %></li>
 						</ul>
 					</div>
 					

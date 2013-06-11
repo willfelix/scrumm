@@ -1,17 +1,15 @@
 <div class="container">
 
 	<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "form-signin" }) do |f| %>
-		<h2 class="form-signin-heading">Scrumm</h2> <br>
+		<h2 class="form-signin-heading">Please Sign in</h2>
 		
-		<%= f.input :email, :required => false, :autofocus => true, :class=>"input-block-level" %>
-		<%= f.input :password, :required => false, :class=>"input-block-level" %>
+		<%= f.input :email, :required => false, :autofocus => true, :placeholder=>"Email address", :class=>"input-block-level" %>
+		<%= f.input :password, :required => false, :placeholder=>"Password", :class=>"input-block-level" %>
 		<label class="checkbox">
           <input type="checkbox" value="remember_me"> Remember me
         </label>
 		
-		<%= f.button :submit, "Sign in", :class=>"btn btn-primary" %>
-		<hr>
-		<%= render "devise/shared/links" %>
+		<%= f.button :submit, "Sign in", :class=>"btn btn-large btn-primary" %>
 	<% end %>
 	
 </div>

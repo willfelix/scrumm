@@ -2,8 +2,11 @@
 	<%- model_class = Task -%>
 	
 	<div class="hero-unit">
-		<h1><%=t '.title', :default => model_class.model_name.human %></h1>
-		<hr>
+	
+		<legend>
+			<%=t '.title', :default => model_class.model_name.human %>
+		</legend>
+		
 		<dl class="dl-horizontal">
 		  <dt><strong><%= model_class.human_attribute_name(:sprint_id) %>:</strong></dt>
 		  <dd><%= @task.sprint.name %></dd>
