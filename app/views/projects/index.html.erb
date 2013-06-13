@@ -35,6 +35,9 @@
 		<% end %>
 	  </tbody>
 	</table>
+	<div class="paginate">
+		<%= paginate @projects %>
+	</div>
 
 	<%= link_to t('.new', :default => t("helpers.links.new")),
 				new_project_path,

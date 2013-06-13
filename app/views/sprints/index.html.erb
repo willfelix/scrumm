@@ -39,6 +39,9 @@
 		<% end %>
 	  </tbody>
 	</table>
+	<div class="paginate">
+		<%= paginate @sprints %>
+	</div>
 
 	<%= link_to t('.new', :default => t("helpers.links.new")),
 				new_sprint_path,

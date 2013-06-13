@@ -18,7 +18,7 @@
 			<% i = 0 %>
 			<% while i < @sprints_date.size %>
 				<tr>
-					<td><%= @sprints_date[i] %></td>
+					<td><%= link_to @sprints_date[i], sprint_path(@sprints_date[i]), :class=>"black" %></td>
 					<td><%= @tasks_ammount[i] %></td>
 					<td><%= @points_ammount[i] %></td>
 				</tr>
@@ -47,7 +47,7 @@
 			<% i = 0 %>
 			<% while i < @sprints_date.size %>
 				<tr>
-					<td><%= @sprints_date[i] %></td>
+					<td><%= link_to @sprints_date[i], sprint_path(@sprints_date[i]), :class=>"black" %></td>
 					<td><%= @tasks_unplanned_ammount[i] %></td>
 					<td><%= @points_unplanned_ammount[i] %></td>
 				</tr>
@@ -75,7 +75,7 @@
 			<% i = 0 %>
 			<% while i < @developers.size %>
 				<tr>
-					<td><%= @developers[i] %></td>
+					<td><%= link_to @developers[i], responsible_path(@developers[i]), :class=>"black" %></td>
 					<td><%= @points_for_people[i] %></td>
 				</tr>
 				<% i += 1 %>
@@ -99,12 +99,12 @@
 		<% while i < @works.size %>
 		
 			<tr>
-				<th rowspan="<%= @developers.size + 1%>"><%= @works[i] %></th>
+				<th rowspan="<%= @developers.size + 1%>"><%= link_to @works[i], project_path(@works[i]), :class=>"black" %></th>
 				
 				<% j = 0 %>
 				<% while j < @developers.size %>
 				<tr>
-					<td><%= @developers[j] %></td>
+					<td><%= link_to @developers[j], responsible_path(@developers[j]), :class=>"black" %></td>
 					<td><%= @points_for_project[j][i] %></td>
 					<% j += 1 %>
 				</tr>

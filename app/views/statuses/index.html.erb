@@ -35,7 +35,10 @@
 		<% end %>
 	  </tbody>
 	</table>
-
+	<div class="paginate">
+		<%= paginate @statuses %>
+	</div>
+	
 	<%= link_to t('.new', :default => t("helpers.links.new")),
 				new_status_path,
 				:class => 'btn btn-primary' %>

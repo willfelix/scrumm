@@ -37,7 +37,10 @@
 		<% end %>
 	  </tbody>
 	</table>
-
+	<div class="paginate">
+		<%= paginate @projects %>
+	</div>
+	
 	<%= link_to t('.new', :default => t("helpers.links.new")),
 				new_point_path,
 				:class => 'btn btn-primary' %>

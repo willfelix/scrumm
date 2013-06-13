@@ -13,36 +13,15 @@
  *= require_tree .
  */
 
- /* Menu Slide */
- #menu {
-	margin:0px;
-	padding:0px;
-	width:180px;
+ .black{
+	color: black;
+ }
+/* Link Pagination */
+.paginate{
+	background-color:black;
+	border-radius: 3px 3px 3px;
+	opacity: 0.5px;
 }
-
-.nome_menu {
-	padding-top:5px;
-	padding-bottom:5px;
-	cursor:pointer;
-	position:relative;
-	margin:1px;
-	color: white;
-}
-
-.itens_menu {
-	padding:10px;
-	text-align:left;
-	color: #fff;
-	display:none;
-}
-
-.itens_menu a {
-	text-decoration: none;
-	display:block;
-	color: #000;
-}
- 
- 
  /* User sign in and sign forms. */
  .border-form-div  h2,
  .border-form-div  h3,
