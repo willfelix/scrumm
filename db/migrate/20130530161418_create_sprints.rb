@@ -4,7 +4,8 @@ class CreateSprints < ActiveRecord::Migration
       t.date :date_begin
       t.date :date_final
       t.string :name
-
+	  t.integer :points
+	  
       t.timestamps
     end
   end

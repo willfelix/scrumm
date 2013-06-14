@@ -12,6 +12,7 @@
 		  <th><%= model_class.human_attribute_name(:date_begin) %></th>
 		  <th><%= model_class.human_attribute_name(:date_final) %></th>
 		  <th><%= model_class.human_attribute_name(:name) %></th>
+		  <th><%= model_class.human_attribute_name(:points) %></th>
 		  <th><%= model_class.human_attribute_name(:created_at) %></th>
 		  <th><%=t '.actions', :default => t("helpers.actions") %></th>
 		</tr>
@@ -23,6 +24,7 @@
 			<td><%= sprint.date_begin %></td>
 			<td><%= sprint.date_final %></td>
 			<td><%= sprint.name %></td>
+			<td><%= sprint.points %></td>
 			<td><%=l sprint.created_at %></td>
 			<td>
 			  <%= link_to t('.show', :default => t("helpers.links.show")),

@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130603171941) do
     t.date     "date_begin"
     t.date     "date_final"
     t.string   "name"
+    t.integer  "points"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

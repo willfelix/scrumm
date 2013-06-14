@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 	@points_ammount = Array.new
 	
 	sprints.each_with_index do |sprint, i|
-		@sprints_date << sprint.date_begin
+		@sprints_date <<  sprint.name + " | " + sprint.date_begin.to_s
 		
 		tasks.each do |task|
 			if task.sprint_id == sprint.id
